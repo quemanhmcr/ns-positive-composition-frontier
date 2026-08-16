@@ -54,18 +54,15 @@ A new exact full-state sharpening is
 
 The Cartan strain `S_u=[J_u,C]` satisfies `F_E=S_u u`; its heat incompatibility is expressed by the curl-Nijenhuis tensor `N_C`.  On backward heat tents, an adjoint/conjugate equation removes the inherited residual term `DF_E(U_s) R_s` exactly, leaving only fresh two-step regeneration and Euler/heat curvature.  Thus `int T_J dt < infinity` is a new sufficient **candidate route**, not a proved estimate.  See `docs/07-torsion-conjugate-frontier.md`.
 
-## Dephasing spectral endgame
+## Conjugate dephasing frontier
 
 On finite periodic curl cutoffs, the helicity-pair amplifier
 \[
 \mathbb B_u=-\nu^{-1}C^{-1}A_u^\perp C^{-1}
 \]
-obeys the exact forced dephasing equation
+still obeys exact quadratic-heat dephasing, but the earlier trace positive-part entropy is now rejected: it overpays unstable directions not occupied by the actual state.  The corrected reduction uses an optimal isospectral gauge plus the backward conjugate density `rho_t=|y(t)><y(t)|`.  It yields an exact threshold-matched balance
 \[
-\partial_t\mathbb B=\nu\mathcal L_{dep}\mathbb B+\mathbb B_{F_E}.
+\boxed{r(t)-1+\text{positive FDR mismatch}
+=\text{conjugate storage}+\frac1{8\nu}\int\mathfrak q_{\mathbb B}(\mathbb B_{F_E})^2dt.}
 \]
-For `R=(mathbb B-I)_+` and `Theta=Tr R^2`, one has
-\[
-\boxed{\dot\Theta+\nu\mathcal I_\Theta=2\operatorname{Tr}(R\nabla_E\mathbb B),\qquad \mathcal I_\Theta\ge0,}
-\]
-where `nabla_E mathbb B=mathbb B_F+[A_u,mathbb B]`; the commutator term is isospectral and vanishes from the trace.  Jacobi reduces `nabla_E mathbb B` to quadratic curl curvature/Nijenhuis composition, so bare one-step regeneration is absent from the endgame.  The two remaining open gates are a curvature-memory absorption estimate and an infrared no-collapse lemma.  See `docs/08-dephasing-spectral-endgame.md`.
+The dual capacity assembles `mathbb B_F+[A_u,mathbb B]` before positivity, so Jacobi/Bianchi reduce the secular source to genuine curl-curvature/Nijenhuis order.  An affine Kelvin kill-test also rules out "heat alone" as the infrared endpoint: fixed infinite-energy strain can amplify while accumulated viscous phase stays finite.  The next open module is therefore a **state-weighted finite-pump depletion/backreaction balance**, not a new global flow.  See `docs/08-dephasing-spectral-endgame.md`.
