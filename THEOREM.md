@@ -285,4 +285,21 @@ Propagating the actual terminal rank-one state backward by the conjugate dephasi
 \boxed{r(t)-1+2\nu\int\mathcal D_X\!\left(\rho-\frac{H_*}{4\nu},\rho-\frac{H_*}{4\nu}\right)
 =\mathcal W+\frac1{8\nu}\int\mathfrak q_{\mathbb B}(\mathbb B_{F_E})^2.}
 \]
-The dual capacity pairs with `mathbb B_F+[A_u,mathbb B]`, so full Jacobi/Bianchi curvature is assembled before positivity.  A fixed-affine Kelvin test shows that accumulated heat alone cannot close the infrared equality case; finite-energy closure must also account for depletion/backreaction of the low-frequency pump.  Deriving that state-weighted pump balance and proving cutoff/infrared packing remain open.  No global-regularity claim is made; see `docs/08-dephasing-spectral-endgame.md`.
+The dual capacity pairs with `mathbb B_F+[A_u,mathbb B]`, so full Jacobi/Bianchi curvature is assembled before positivity.  The finite-pump identity itself is now exact.  If
+\[
+\phi=C^2u,\qquad \Gamma_u=|\phi\rangle\langle\phi|_g,\qquad
+\mathscr G_U=-CA_UC^{-1}=-A_U+\mathcal K_UC^{-1},
+\]
+then
+\[
+\mathbb B_U=\nu^{-1}\operatorname{Sym}_g(\Lambda^{-2}\mathscr G_U),
+\qquad
+\operatorname{Tr}_g(\Gamma_u\Lambda^{-3})=E,
+\]
+and for every heat depth `h`,
+\[
+\boxed{
+\operatorname{Re}\operatorname{Tr}_g
+(\Gamma_u\Lambda^{-3}\mathscr G_{H_{2h}u})=-W_h.}
+\]
+Thus finite Germano pump depletion is the `Lambda^{-3}` physical-action moment of the same `C^2u` generator whose `Lambda^{-2}` symmetric part is the helicity-pair amplifier.  The open theorem is no longer the existence of a pump identity; it is to control the historical alignment/action defect created when `Gamma_u/M_3` is replaced by the backward conjugate density, while charging carrier-changing isospectral reorientation.  This cannot follow from dephasing alone because every Fourier-diagonal `f(X)`, including `Lambda^{-3}`, lies in `ker mathcal A_X`.  The refill source must be returned to `mathcal K`, `N_C`, or the full Bianchi/Jacobi source before positivity.  Cutoff/infrared packing remains separate.  No global-regularity claim is made; see `docs/08-dephasing-spectral-endgame.md`.

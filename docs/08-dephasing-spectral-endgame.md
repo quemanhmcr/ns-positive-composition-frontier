@@ -7,7 +7,7 @@ Let `A_u=ad_u=[u,.]`, `J=sgn C`,
 A_u^\perp=\tfrac12(A_u-JA_uJ),\qquad
 \mathbb B_u=-\nu^{-1}C^{-1}A_u^\perp C^{-1}.
 \]
-In the positive metric `g(a,b)=<Lambda^{-1}a,b>`, `mathbb B` is self-adjoint and `J mathbb B J=-mathbb B`.  Below, finite-cutoff adjoints, traces, and Hilbert-Schmidt norms are taken after `g`-orthonormalization.  After the natural heat-clock normalization there is a unit actual-state direction `y` with
+In the positive metric `g(a,b)=<Lambda^{-1}a,b>`, `mathbb B` is self-adjoint and `J mathbb B J=-mathbb B`.  Below, finite-cutoff adjoints, traces, and Hilbert-Schmidt norms are taken after `g`-orthonormalization.  After the natural heat-clock normalization the unit actual-state direction may be taken as `y=C^2u/sqrt(M_3)`, with
 \[
 \boxed{r=\langle y,\mathbb B y\rangle_g=\kappa/(\nu M_3),\qquad
 (d/d\sigma)\log K=2(r-1).}
@@ -121,6 +121,118 @@ A useful scaling diagnostic is obtained from Bernstein:
 \]
 Under the model assumptions `|S|~(T-t)^(-1)` and `|k|~(T-t)^(-p)`, relative infrared coherence requires `p>2/5`, while finite viscous phase requires `p<1/2`.  Thus a heat-neutral affine loophole, if any, is forced into the narrow model wedge `2/5<p<1/2`; this is a diagnostic, not a proved closure theorem.
 
-## 6. Current frontier
+## 6. Exact physical-state wave-action / Germano bridge
 
-The next module is not a new global flow.  It is a **state-weighted pump-depletion balance** coupling the conjugate density to the existing Germano stress work.  A bad critical block must be paid by actual viscous/FDR loss, depletion of a finite low-frequency pump, or curvature capacity required to refill/reorient that pump.  The remaining tasks are to derive that intrinsic pump balance, prove cutoff/low-frequency stability of the optimal capacity, and then pack the resulting bad blocks.  No global-regularity claim is made.
+The normalized conjugate density alone does not carry the amplitude of the physical state.  The missing amplitude can be kept without leaving the Cartan/curl structure.  Set
+\[
+\phi=C^2u,\qquad
+\Gamma_u=|\phi\rangle\langle\phi|_g,
+\qquad
+\mathscr G_U:=-CA_UC^{-1}=-A_U+\mathcal K_UC^{-1},
+\]
+where `mathcal K_U=[A_U,C]`.  Then
+\[
+\boxed{\phi_t=\mathscr G_u\phi-\nu C^2\phi.}
+\]
+The unnormalized rank-one covariance has the exact moment ladder
+\[
+\boxed{
+\operatorname{Tr}_g(\Gamma_u)=M_3,\qquad
+\operatorname{Tr}_g(\Gamma_u\Lambda^{-2})=K,\qquad
+\operatorname{Tr}_g(\Gamma_u\Lambda^{-3})=E.}
+\]
+Thus `Lambda^{-3}` is the finite-energy wave-action conversion that is lost when one keeps only `Tr rho=1`.
+
+The amplifier is exactly the critical-moment symmetric part of this physical generator:
+\[
+\boxed{
+\mathbb B_U
+=\nu^{-1}\operatorname{Sym}_g(\Lambda^{-2}\mathscr G_U).}
+\]
+Indeed `Lambda^{-2} mathscr G_U=-C^{-1}A_UC^{-1}` and the `g`-self-adjoint part of `A_U` is `A_U^perp`.  Consequently, for every self-adjoint state `rho`,
+\[
+\boxed{
+\nu\operatorname{Tr}_g(\rho\mathbb B_U)
+=\operatorname{Re}\operatorname{Tr}_g(\rho\Lambda^{-2}\mathscr G_U).}
+\]
+This identifies the present conjugate amplifier as a normalized critical-work observable of the actual `C^2u` flow.
+
+The next lower moment is exactly physical pump work.  For every divergence-free `U`,
+\[
+\boxed{
+\operatorname{Re}\operatorname{Tr}_g(\Gamma_u\Lambda^{-3}\mathscr G_U)
+=-\langle U,F_E(u)\rangle.}
+\]
+For a heat depth `h`, self-adjointness of `H_h` gives
+\[
+W_h=\langle H_hu,H_hF_E(u)\rangle
+=\langle H_{2h}u,F_E(u)\rangle,
+\]
+so
+\[
+\boxed{
+\operatorname{Re}\operatorname{Tr}_g
+(\Gamma_u\Lambda^{-3}\mathscr G_{H_{2h}u})=-W_h.}
+\]
+Equivalently, the finite low-frequency pump storage obeys the exact balance
+\[
+\boxed{
+\frac12\partial_t\|H_hu\|_2^2
++\nu\|\Lambda H_hu\|_2^2
++\operatorname{Re}\operatorname{Tr}_g
+(\Gamma_u\Lambda^{-3}\mathscr G_{H_{2h}u})=0.}
+\]
+A fixed affine pump is excluded at exactly the right point: this storage is not finite for an infinite-energy affine field.
+
+To couple this identity to the backward conjugate state, let
+\[
+\rho_{\rm act}=\Gamma_u/M_3,
+\qquad
+\Delta\rho_s^t=\rho_s^t-\rho_{\rm act}(s).
+\]
+At every fixed heat depth `h`, the exact conjugate/Germano balance is
+\[
+\boxed{
+\frac12\partial_s\|H_hu\|_2^2
++\nu\|\Lambda H_hu\|_2^2
++M_3\operatorname{Re}\operatorname{Tr}_g
+(\rho_s^t\Lambda^{-3}\mathscr G_{H_{2h}u})
+=\mathcal E_{\rm align},}
+\]
+with the explicit alignment defect
+\[
+\boxed{
+\mathcal E_{\rm align}
+=M_3\operatorname{Re}\operatorname{Tr}_g
+(\Delta\rho_s^t\Lambda^{-3}\mathscr G_{H_{2h}u}).}
+\]
+The defect vanishes at the terminal time but not historically.  Dropping it would identify a normalized diagnostic state with the physical action covariance and is therefore not an exact depletion argument.
+
+The physical generator already exposes where refill/reorientation must enter:
+\[
+\mathscr G_u=-A_u+\mathcal K C^{-1}.
+\]
+The first term is inherited Lie transport; the failure of curl to follow that transport is `mathcal K C^{-1}`.  Before any modulus is taken, fresh evolution of `mathcal K` is governed by the existing Euler-curl Bianchi-Riccati identity
+\[
+C(\mathcal K_{F_E}+[A_u,\mathcal K])
+=-\mathcal K^2-[A_u,\mathcal N]+[A_{Cu},\mathcal K]-\mathcal N_{F_E}.
+\]
+Thus a successful control of `mathcal E_align` has a structurally correct route back to `mathcal K`, `N_C`, and the full Jacobi source; one-step `mathcal K` must not be squared occurrence by occurrence.
+
+There are two exact obstructions to treating the present trace-one conjugate flow as already sufficient.  First, a finite-dimensional nondegenerate three-mode Cartan sanity test has daughter relative growth independent of a common small amplitude `epsilon`, while pump-energy depletion is `O(epsilon^2)`.  Hence no amplitude-free normalized-gain-to-depletion estimate can follow from Cartan homogeneity alone; an actual action/covariance weight is necessary.  Second, every Fourier-diagonal `Q=f(X)` lies in the kernel of `mathcal A_X`, so along the conjugate flow
+\[
+\boxed{
+\frac d{ds}\operatorname{Tr}(\rho Q)
+=\operatorname{Tr}(\rho[Q,\Omega_*]).}
+\]
+In particular `Q=Lambda^{-3}` carries the finite-energy action but receives no dephasing/FDR control.  Pure isospectral rotations can therefore reorient carrier action at zero `mathfrak q_B` cost in the abstract finite-cutoff geometry.  Any estimate charging such reorientation must use additional physical Cartan/Jacobi information, not the dephasing capacity alone.
+
+## 7. Current frontier
+
+The Flow machine survives the affine kill-test, but only after an **actual-action augmentation**.  The exact finite-pump identity is now available; the decisive open term is the historical alignment/action defect between the backward conjugate density and the unnormalized physical `C^2u` covariance.  The next theorem must show blockwise that a bad critical state pays at least one of:
+\[
+\text{viscous/FDR loss},\qquad
+\text{finite Germano pump depletion},\qquad
+\text{physical carrier reconfiguration through }\mathcal K/N_C.
+\]
+The proof must also charge the carrier-changing part of the optimal isospectral gauge, because `Lambda^{-3}` lies in the exact dephasing kernel.  Only after this local action balance is closed should cutoff/infrared packing be attempted.  A global `h^{-3/2}` integration of the pump storage simply reconstructs `K` and would be circular.  No global-regularity claim is made.

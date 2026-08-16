@@ -65,4 +65,8 @@ still obeys exact quadratic-heat dephasing, but the earlier trace positive-part 
 \boxed{r(t)-1+\text{positive FDR mismatch}
 =\text{conjugate storage}+\frac1{8\nu}\int\mathfrak q_{\mathbb B}(\mathbb B_{F_E})^2dt.}
 \]
-The dual capacity assembles `mathbb B_F+[A_u,mathbb B]` before positivity, so Jacobi/Bianchi reduce the secular source to genuine curl-curvature/Nijenhuis order.  An affine Kelvin kill-test also rules out "heat alone" as the infrared endpoint: fixed infinite-energy strain can amplify while accumulated viscous phase stays finite.  The next open module is therefore a **state-weighted finite-pump depletion/backreaction balance**, not a new global flow.  See `docs/08-dephasing-spectral-endgame.md`.
+The dual capacity assembles `mathbb B_F+[A_u,mathbb B]` before positivity, so Jacobi/Bianchi reduce the secular source to genuine curl-curvature/Nijenhuis order.  An affine Kelvin kill-test rules out "heat alone" as the infrared endpoint.  The finite-pump bridge is now exact: with `phi=C^2u`, `Gamma_u=|phi><phi|_g`, and `mathscr G_U=-C A_U C^{-1}=-A_U+mathcal K_U C^{-1}`, one has `mathbb B_U=nu^{-1} Sym_g(Lambda^{-2} mathscr G_U)` and
+\[
+\operatorname{Re}\operatorname{Tr}_g(\Gamma_u\Lambda^{-3}\mathscr G_{H_{2h}u})=-W_h.
+\]
+Hence the actual `Lambda^{-3}` action moment gives finite Germano pump depletion exactly.  What remains is an **alignment/action gap**: the backward trace-one conjugate density is not the unnormalized physical `C^2u` covariance, and `Lambda^{-3}` lies in the exact kernel of dephasing, so carrier-changing isospectral reorientation is not charged by `mathfrak q_B` alone.  A Cartan three-mode small-daughter test also falsifies any amplitude-free normalized-gain-to-depletion estimate.  The Flow machine therefore needs an actual-action/wave-action augmentation tied to `mathcal K`, `N_C`, and the existing Bianchi source before cutoff packing.  See `docs/08-dephasing-spectral-endgame.md`.
