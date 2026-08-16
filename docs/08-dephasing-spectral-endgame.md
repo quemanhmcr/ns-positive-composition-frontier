@@ -30,7 +30,7 @@ Then
 \]
 The old trace entropy `Tr(mathbb B-I)_+^2` is not the final observable: in the `1+1` block `mathbb B=[[0,b],[b,0]]`, `y=e_+` gives actual gain `r=0` although the trace positive part is large for `b>1`.  Thus positive spectral projection before state compression overpays hypothetical directions.
 
-## 2. Optimal dephasing gauge
+## 2. Optimal dephasing gauge (diagnostic quotient)
 
 Let `Z=mathbb B_{F_E}`.  Remove isospectral rotations in the dual metric of quadratic heat.  On finite cutoffs define through carrier-zero regularization
 \[
@@ -55,7 +55,7 @@ Equivalently, after the same regularization,
 \]
 So Euler regeneration is split into free spectral rotation plus the true dephasing-gradient part that can change occupied gain.
 
-## 3. Conjugate actual-state density
+## 3. Conjugate actual-state density for the diagnostic quotient
 
 Fix terminal time `t` and propagate the actual pure state backward by
 \[
@@ -217,7 +217,7 @@ The first term is inherited Lie transport; the failure of curl to follow that tr
 C(\mathcal K_{F_E}+[A_u,\mathcal K])
 =-\mathcal K^2-[A_u,\mathcal N]+[A_{Cu},\mathcal K]-\mathcal N_{F_E}.
 \]
-Thus a successful control of `mathcal E_align` has a structurally correct route back to `mathcal K`, `N_C`, and the full Jacobi source; one-step `mathcal K` must not be squared occurrence by occurrence.
+This exposes the correct structural source but also shows why the direct alignment route is not acceptable: subtracting an optimal-gauge conjugate state from the physical covariance leaves inherited transport in the state equation.  Section 7 replaces that comparison by a physically anchored corotating connection; no estimate of `mathcal E_align` is used.
 
 There are two exact obstructions to treating the present trace-one conjugate flow as already sufficient.  First, a finite-dimensional nondegenerate three-mode Cartan sanity test has daughter relative growth independent of a common small amplitude `epsilon`, while pump-energy depletion is `O(epsilon^2)`.  Hence no amplitude-free normalized-gain-to-depletion estimate can follow from Cartan homogeneity alone; an actual action/covariance weight is necessary.  Second, every Fourier-diagonal `Q=f(X)` lies in the kernel of `mathcal A_X`, so along the conjugate flow
 \[
@@ -227,52 +227,214 @@ There are two exact obstructions to treating the present trace-one conjugate flo
 \]
 In particular `Q=Lambda^{-3}` carries the finite-energy action but receives no dephasing/FDR control.  Pure isospectral rotations can therefore reorient carrier action at zero `mathfrak q_B` cost in the abstract finite-cutoff geometry.  Any estimate charging such reorientation must use additional physical Cartan/Jacobi information, not the dephasing capacity alone.
 
-## 7. Self-audit: the alignment gap is not yet a certified reduction
+## 7. Physical corotating connection: the anchoring test succeeds
 
-The exact pump identity is real, but by itself it does **not** show that the remaining historical estimate is smaller than the original critical-growth problem.  The reason is visible by evolving the normalized physical covariance itself.  Put
+The self-audit above identifies the problem with `Omega_*`: it is an optimal spectral quotient, not the physical transport connection.  The correct anchoring is obtained by taking only the `g`-skew part of the actual Lie transport as free rotation.  Since
 \[
-L_u=\mathscr G_u-\nu\Lambda^2,
-\qquad
-\alpha_u=\operatorname{Tr}_g\bigl((L_u+L_u^{\dagger_g})\rho_{\rm act}\bigr)
-=\partial_t\log M_3.
+A_u^{\dagger_g}=-JA_uJ,
 \]
-Since `Gamma_t=L_u Gamma+Gamma L_u^{dagger_g}`, one has the exact normalized law
+set
 \[
 \boxed{
-\partial_t\rho_{\rm act}
-=L_u\rho_{\rm act}+\rho_{\rm act}L_u^{\dagger_g}
--\alpha_u\rho_{\rm act}.}
+A_u^{\rm rot}:=\frac12(A_u+JA_uJ),\qquad
+A_u^\perp:=\frac12(A_u-JA_uJ),
+}
 \]
-Subtracting this from the backward conjugate equation gives
+so `A_u^rot` is `g`-skew, commutes with `J`, while `A_u^perp` is `g`-self-adjoint, anticommutes with `J`, and is exactly the productive strain entering `mathbb B`.  The physically anchored corotating connection is
+\[
+\boxed{\Omega_{\rm phys}:=-A_u^{\rm rot}.}
+\]
+It quotients only the metric-preserving rotation of the actual Cartan transport; the productive strain is not declared free.
+
+This choice passes the anchoring go/no-go test exactly.  Put
+\[
+\mathcal R_{\rm phys}
+:=\mathbb B_{F_E}-[\Omega_{\rm phys},\mathbb B]
+=\mathbb B_{F_E}+[A_u^{\rm rot},\mathbb B].
+\]
+Because `[A_u^perp,mathbb B]` is `g`-skew,
 \[
 \boxed{
-\partial_s\Delta\rho
-=\nu\mathcal A_X\Delta\rho+[\Omega_*,\Delta\rho]
-+\mathcal S_{\rm align},}
+\mathcal R_{\rm phys}
+=\operatorname{Sym}_g\!\left(\mathbb B_{F_E}+[A_u,\mathbb B]\right).}
+\]
+Thus inherited one-step transport has disappeared **before positivity**.  The remaining self-adjoint source is the physical symmetric compression of the full covariant Euler source.  Through the existing Sylvester relation between `mathbb B` and `mathcal K^perp`, the Bianchi-Riccati identity
+\[
+C(\mathcal K_{F_E}+[A_u,\mathcal K])
+=-\mathcal K^2-[A_u,\mathcal N]+[A_{Cu},\mathcal K]-\mathcal N_{F_E}
+\]
+therefore applies before any modulus is taken.  This is a genuine algebraic reduction: no bare `A_u` remains in `mathcal R_phys`.
+
+The material-pullback calculation explains why this is the canonical split.  If `P_t=-A_uP`, then
+\[
+\widetilde C=P^{-1}CP,\qquad
+\partial_t\widetilde C=P^{-1}\mathcal K P,
+\]
+and for material vorticity `eta=P^{-1}Cu`,
+\[
+\partial_t\eta=-\nu\widetilde C^{\,2}\eta.
+\]
+However the positive helicity polarization moves by
+\[
+\partial_t(P^{-1}JP)=P^{-1}[A_u,J]P,
+\qquad [A_u,J]J=2A_u^\perp.
+\]
+So a full Lagrangian pullback merely moves the dangerous one-step strain into the positive metric.  Removing only `A_u^rot` is the objective corotating version: rotation is free, strain is retained as physical work.
+
+Fix terminal time `t` and propagate the actual terminal rank-one state by this physical connection,
+\[
+\boxed{
+\partial_s\rho_s^t
+=\nu\mathcal A_X\rho_s^t+[\Omega_{\rm phys},\rho_s^t],
+\qquad \rho_t^t=|y(t)\rangle\langle y(t)|.}
+\]
+Because `Omega_phys` is `g`-skew, positivity and trace one are preserved backward.  Since
+\[
+\partial_t\mathbb B
+=-\nu\mathcal A_X\mathbb B+[\Omega_{\rm phys},\mathbb B]
++\mathcal R_{\rm phys},
+\]
+there is the exact actual-state-compressed identity
+\[
+\boxed{
+\frac d{ds}
+\left(\operatorname{Tr}(\rho\mathbb B)-\operatorname{Tr}\rho^2\right)
+=\operatorname{Tr}(\rho\mathcal R_{\rm phys})
+-2\nu\mathcal D_X(\rho,\rho).}
+\]
+No comparison with `rho_act` is needed, so the previous alignment defect is not the new seam.
+
+Let `Pi_0` be the finite-cutoff orthogonal projection onto `ker mathcal A_X` and write
+\[
+\mathcal R_0=\Pi_0\mathcal R_{\rm phys},\qquad
+\mathcal R_1=(I-\Pi_0)\mathcal R_{\rm phys}.
+\]
+Set
+\[
+\delta=\mathcal D_X(\rho,\rho),\qquad
+\beta=\operatorname{Tr}(\rho\mathcal R_1),\qquad
+\chi=\operatorname{Tr}(\rho\mathcal R_0).
+\]
+If `delta=0`, then `rho` lies in `ker mathcal A_X`, hence `beta=0`.  With the convention `beta^2/delta=0` in that case, scalar completion **after actual-state compression** gives
+\[
+\boxed{
+\beta-2\nu\delta
+=\frac1{8\nu}\frac{\beta^2}{\delta}
+-2\nu\delta\left(1-\frac{\beta}{4\nu\delta}\right)^2.}
+\]
+Therefore
+\[
+\boxed{
+\begin{aligned}
+r(t)-1
+&+2\nu\int_a^t
+\mathcal D_X(\rho,\rho)
+\left(1-\frac{\operatorname{Tr}(\rho\mathcal R_1)}
+{4\nu\mathcal D_X(\rho,\rho)}\right)^2ds\\
+&=\mathcal W^{\rm phys}_{a\to t}
++\int_a^t\operatorname{Tr}(\rho\mathcal R_0)\,ds
++\frac1{8\nu}\int_a^t
+\frac{\operatorname{Tr}(\rho\mathcal R_1)^2}
+{\mathcal D_X(\rho,\rho)}\,ds,
+\end{aligned}}
 \]
 where
 \[
+\mathcal W^{\rm phys}_{a\to t}
+=\operatorname{Tr}(\rho_a^t\mathbb B(a))
+-\operatorname{Tr}((\rho_a^t)^2).
+\]
+The positive curvature capacity is now **state weighted**.  It is no larger than the corresponding full dual heat capacity by Cauchy, but it does not pay curvature directions unused by the actual conjugate state.
+
+For mean-zero periodic states, `Pi_0 mathbb B=Pi_0 mathbb B_{F_E}=0`.  Hence
+\[
 \boxed{
-\mathcal S_{\rm align}
-=\nu\mathcal A_X\rho_{\rm act}+[\Omega_*,\rho_{\rm act}]
--L_u\rho_{\rm act}-\rho_{\rm act}L_u^{\dagger_g}
-+\alpha_u\rho_{\rm act}.}
+\mathcal R_0
+=\Pi_0[A_u^{\rm rot},\mathbb B].}
 \]
-Although `Delta rho_t=0`, the source `mathcal S_align(t)` is generically nonzero.  In particular it contains the full physical generator `mathscr G_u=-A_u+mathcal K C^{-1}`.  Therefore a direct estimate of `Delta rho` can simply reintroduce the original one-step stretching problem under a new name.
+Thus the exact dephasing-kernel obstruction has been reduced to a zero-net-carrier, two-step `q,-q` backreaction/reorientation loop.  It is already after the physical connection and after full Jacobi/Bianchi assembly; it is not the old one-step stretching gap in new notation.
 
-There is a second, related issue.  The optimal `Omega_*` is obtained by quotienting `mathbb B_F` modulo **all** isospectral commutators.  This is legitimate for instantaneous spectral deformation, but it does not make `Omega_*` the physical transport connection of `rho_act`.  The identity
+## 8. Exact critical-work / finite-pump conversion
+
+The same physical generator gives a pointwise work-energy conversion between critical amplification and finite pump depletion.  For any divergence-free pump `U`, define
 \[
-\operatorname{Tr}(H_*\mathbb B_F)
-=\operatorname{Tr}(H_*(\mathbb B_F+[A_u,\mathbb B]))
+\mathcal P_2(U)
+:=\nu\operatorname{Tr}_g(\Gamma_u\mathbb B_U)
+=\operatorname{Re}\operatorname{Tr}_g
+(\Gamma_u\Lambda^{-2}\mathscr G_U),
 \]
-uses `[H_*,mathbb B]=0`; it does not imply `Omega_*` equals the physical skew transport.  The finite-cutoff kernel test with `q_B=0` but changing `Tr(rho Lambda^{-3})` shows that the unconstrained quotient can remove carrier reorientation which is invisible to dephasing but relevant to finite pump action.
-
-Hence the present Flow machine is, at this stage, a **diagnostic/structural reduction, not yet a quantitative closure reduction**.  It has genuinely eliminated false routes (trace entropy, heat-only infrared closure, amplitude-free depletion) and exposed the exact finite-pump work, but the remaining alignment/reorientation theorem has not been proved smaller than the original regularity gap.
-
-The next go/no-go test must therefore occur **before** any estimate of `mathcal E_align`: derive a physically anchored connection or a two-state duality for which inherited transport cancels exactly and for which the residual source is forced to `mathcal K`, `N_C`, or the full Bianchi/Jacobi combination before positivity.  If no such identity exists, continuing to bound `Delta rho` or adding another entropy/corrector would be circular and the Flow machine must be augmented or replaced.  Only if this anchoring succeeds should one seek the blockwise trichotomy
 \[
-\text{viscous/FDR loss},\qquad
+\mathcal P_3(U)
+:=\operatorname{Re}\operatorname{Tr}_g
+(\Gamma_u\Lambda^{-3}\mathscr G_U)
+=-\langle U,F_E(u)\rangle.
+\]
+Let
+\[
+\ell:=K/E,
+\qquad s=(\Lambda-\ell)u.
+\]
+Then exactly
+\[
+\boxed{
+\mathcal P_2(U)-\ell\mathcal P_3(U)
+=\operatorname{Re}g\!\left(
+\Lambda^{-3/2}(\Lambda-\ell)\phi,
+\Lambda^{-3/2}\mathscr G_U\phi\right).}
+\]
+The two factors have the intrinsic norms
+\[
+\left\|\Lambda^{-3/2}(\Lambda-\ell)\phi\right\|_g
+=\|s\|_2,
+\]
+\[
+\left\|\Lambda^{-3/2}\mathscr G_U\phi\right\|_g
+=\|J_UCu\|_2,
+\]
+so, only after the exact identity is assembled,
+\[
+\boxed{
+|\mathcal P_2(U)-\ell\mathcal P_3(U)|
+\le \|s\|_2\,\|J_UCu\|_2.}
+\]
+For the actual heat-depth pump `U=H_{2h}u`, `mathcal P_3(U)=-W_h`, hence
+\[
+\boxed{
+|\mathcal P_2(H_{2h}u)+\ell W_h|
+\le \|s\|_2\,\|J_{H_{2h}u}Cu\|_2.}
+\]
+The equality case is rigid and physically correct: if the actual energy state lies on a single `Lambda=ell` shell, then `s=0` and
+\[
+\boxed{\mathcal P_2(H_{2h}u)=-\ell W_h.}
+\]
+Thus positive critical work from a coherent low-frequency pump forces negative Germano work and therefore depletion of the finite storage `||H_hu||_2^2/2`.  The fixed affine counterexample fails here for the correct reason: that pump storage is infinite.
+
+The pump split is also exact at operator level:
+\[
+\boxed{
+\mathbb B_u
+=\mathbb B_{H_{2h}u}+\mathbb B_{(I-H_{2h})u}
+=e^{-2h\mathcal A_X}\mathbb B_u
++(I-e^{-2h\mathcal A_X})\mathbb B_u.}
+\]
+Hence a bad state can only avoid the finite low-pump work channel by using a dephasing-visible high-pump remainder, by having nontrivial shell-spread error `s`, or by reconfiguring/refilling through the covariant curvature source above.
+
+## 9. Current frontier
+
+The optimal `Omega_*` quotient remains a useful diagnostic lower capacity, but it is no longer the physical endgame gauge.  The anchoring problem itself is now resolved algebraically by `Omega_phys=-A_u^rot`: inherited transport is removed without declaring productive strain or carrier action free, and the fresh source is the state-compressed symmetric Bianchi/Jacobi curvature.
+
+The decisive unresolved term is now narrower:
+\[
+\boxed{
+\text{state-weighted dephasing-kernel backreaction }
+\operatorname{Tr}(\rho\mathcal R_0),
+\qquad
+\mathcal R_0=\Pi_0[A_u^{\rm rot},\mathbb B],}
+\]
+together with cutoff/infrared stability of the low-pump conversion.  This kernel term is a closed two-step carrier loop, not a bare one-step strain.  The next theorem must connect its persistent favorable sign to at least one of
+\[
 \text{finite Germano pump depletion},\qquad
-\text{physical carrier reconfiguration through }\mathcal K/N_C.
+\text{state-weighted Bianchi/Nijenhuis reconfiguration},\qquad
+\text{loss of carrier/shell coherence already visible to FDR}.
 \]
-Cutoff/infrared packing remains a separate later gate.  A global `h^{-3/2}` integration of pump storage merely reconstructs `K` and is circular.  No global-regularity claim is made.
+No occurrence-wise squaring of the loop is allowed.  If this kernel term cannot be tied to the finite pump storage or to the full Bianchi/Nijenhuis source without reintroducing bare `A_u`, then a new conditional-covariance/wave-action module is genuinely required.  Cutoff/infrared packing remains a later gate, and no global-regularity claim is made.

@@ -54,19 +54,47 @@ A new exact full-state sharpening is
 
 The Cartan strain `S_u=[J_u,C]` satisfies `F_E=S_u u`; its heat incompatibility is expressed by the curl-Nijenhuis tensor `N_C`.  On backward heat tents, an adjoint/conjugate equation removes the inherited residual term `DF_E(U_s) R_s` exactly, leaving only fresh two-step regeneration and Euler/heat curvature.  Thus `int T_J dt < infinity` is a new sufficient **candidate route**, not a proved estimate.  See `docs/07-torsion-conjugate-frontier.md`.
 
-## Conjugate dephasing frontier
+## Physical corotating dephasing frontier
 
-On finite periodic curl cutoffs, the helicity-pair amplifier
+The optimal isospectral gauge remains an exact diagnostic quotient but is no longer used as the physical endgame connection: it can quotient carrier reorientation that is invisible to dephasing but relevant to finite pump action.  Split the actual Lie transport by the positive helicity metric,
 \[
-\mathbb B_u=-\nu^{-1}C^{-1}A_u^\perp C^{-1}
+A_u^{\rm rot}=\tfrac12(A_u+JA_uJ),\qquad
+A_u^\perp=\tfrac12(A_u-JA_uJ),
 \]
-still obeys exact quadratic-heat dephasing, but the earlier trace positive-part entropy is now rejected: it overpays unstable directions not occupied by the actual state.  The corrected reduction uses an optimal isospectral gauge plus the backward conjugate density `rho_t=|y(t)><y(t)|`.  It yields an exact threshold-matched balance
+and choose the canonical physical rotation
 \[
-\boxed{r(t)-1+\text{positive FDR mismatch}
-=\text{conjugate storage}+\frac1{8\nu}\int\mathfrak q_{\mathbb B}(\mathbb B_{F_E})^2dt.}
+\boxed{\Omega_{\rm phys}=-A_u^{\rm rot}.}
 \]
-The dual capacity assembles `mathbb B_F+[A_u,mathbb B]` before positivity, so Jacobi/Bianchi reduce the secular source to genuine curl-curvature/Nijenhuis order.  An affine Kelvin kill-test rules out "heat alone" as the infrared endpoint.  The finite-pump bridge is now exact: with `phi=C^2u`, `Gamma_u=|phi><phi|_g`, and `mathscr G_U=-C A_U C^{-1}=-A_U+mathcal K_U C^{-1}`, one has `mathbb B_U=nu^{-1} Sym_g(Lambda^{-2} mathscr G_U)` and
+Then
 \[
-\operatorname{Re}\operatorname{Tr}_g(\Gamma_u\Lambda^{-3}\mathscr G_{H_{2h}u})=-W_h.
+\boxed{
+\mathcal R_{\rm phys}
+:=\mathbb B_{F_E}-[\Omega_{\rm phys},\mathbb B]
+=\operatorname{Sym}_g(\mathbb B_{F_E}+[A_u,\mathbb B]).}
 \]
-Hence the actual `Lambda^{-3}` action moment gives finite Germano pump depletion exactly.  However the current **alignment/action gap is not yet a certified smaller theorem**.  The normalized physical covariance obeys `rho_act,t=L_u rho_act+rho_act L_u^dagger-alpha rho_act` with `L_u=mathscr G_u-nu Lambda^2`; subtracting the backward conjugate flow leaves a source containing the full `mathscr G_u=-A_u+mathcal K C^{-1}`.  Thus directly estimating `rho-rho_act` can repackage the original one-step stretching problem.  Moreover the optimal `Omega_*` quotients all isospectral rotations, whereas physical action reorientation need not be free; `Lambda^{-3}` lies in `ker mathcal A_X` and an abstract finite-cutoff model has `q_B=0` while that action moment changes.  The Flow machine is therefore presently a **diagnostic/structural reduction, not yet a quantitative closure reduction**.  Its next go/no-go gate is an exact physically anchored connection/two-state duality forcing the alignment source to `mathcal K`, `N_C`, or full Bianchi/Jacobi order before positivity.  Without that identity, adding estimates to the alignment defect would be circular.  See `docs/08-dephasing-spectral-endgame.md`.
+Thus bare one-step transport is removed before positivity, while the productive strain is not declared free.  Full Jacobi/Bianchi structure therefore enters before actual-state compression.
+
+For the backward terminal actual state driven by dephasing plus `Omega_phys`, let `Pi_0` project onto `ker mathcal A_X`, `R_0=Pi_0 R_phys`, `R_1=(I-Pi_0)R_phys`, `delta=D_X(rho,rho)`, and `beta=Tr(rho R_1)`.  The exact scalar completion after state compression is
+\[
+\boxed{
+\beta-2\nu\delta=\frac{\beta^2}{8\nu\delta}
+-2\nu\delta\left(1-\frac{\beta}{4\nu\delta}\right)^2,}
+\]
+with `beta^2/delta=0` when `delta=0`.  Hence the positive curvature capacity is state weighted rather than a full operator trace cost.  For mean-zero periodic states,
+\[
+\boxed{\mathcal R_0=\Pi_0[A_u^{\rm rot},\mathbb B],}
+\]
+so the only exact dephasing-kernel seam is a zero-net-carrier two-step backreaction/reorientation loop, not the original one-step stretching gap.
+
+The finite-pump conversion is also exact.  With `phi=C^2u`, `Gamma=|phi><phi|_g`, `ell=K/E`, and
+\[
+\mathcal P_2(U)=\nu\operatorname{Tr}_g(\Gamma\mathbb B_U),\qquad
+\mathcal P_3(U)=-\langle U,F_E(u)\rangle,
+\]
+one has
+\[
+\boxed{
+|\mathcal P_2(U)-\ell\mathcal P_3(U)|
+\le \|(\Lambda-\ell)u\|_2\,\|J_UCu\|_2.}
+\]
+For `U=H_{2h}u`, `mathcal P_3=-W_h`; on an exact single shell the error vanishes and positive critical work forces finite Germano pump depletion.  The affine fixed-pump loophole fails because its pump storage is infinite.  The current decisive gate is to control the state-weighted kernel loop by finite pump depletion, full Bianchi/Nijenhuis reconfiguration, or FDR-visible loss of coherence, without occurrence-wise squaring.  Cutoff/infrared packing remains separate.  See `docs/08-dephasing-spectral-endgame.md`.

@@ -270,36 +270,67 @@ and therefore the representation-free sufficient majorant
 
 Thus `int_0^T T_J dt < infinity` would also close the minimal critical-action gap.  This historical torsion estimate is open.  The candidate mechanism uses the curl-Nijenhuis heat defect of `S_u=[J_u,C]` together with a backward-tent conjugate identity that removes inherited residual transport before any absolute values are taken; see `docs/07-torsion-conjugate-frontier.md`.
 
-### Finite-cutoff conjugate-flow reduction
+### Finite-cutoff physically anchored reduction
 
-The current sharper **open endgame reduction** keeps
+The helicity-pair amplifier remains
 \[
-\mathbb B_u=-\nu^{-1}C^{-1}A_u^\perp C^{-1},
+\mathbb B_u=-\nu^{-1}C^{-1}A_u^\perp C^{-1}.
 \]
-but no longer uses `Tr(mathbb B-I)_+^2` as the final observable: that trace can charge hypothetical unstable directions even when the actual gain vanishes.  On finite periodic curl cutoffs, minimizing Euler regeneration modulo isospectral commutators in the dual quadratic-heat metric gives
+The unconstrained optimal isospectral gauge is retained only as a diagnostic quotient.  For the physical endgame, split
 \[
-\mathbb B_{F_E}=[\Omega_*,\mathbb B]+\mathcal A_XH_*,\qquad [H_*,\mathbb B]=0.
+A_u=A_u^{\rm rot}+A_u^\perp,
+\qquad
+A_u^{\rm rot}=\tfrac12(A_u+JA_uJ),
 \]
-Propagating the actual terminal rank-one state backward by the conjugate dephasing/unitary flow gives the exact threshold balance
+where `A_u^rot` is `g`-skew and `A_u^perp` is the productive `g`-self-adjoint strain.  Choose
 \[
-\boxed{r(t)-1+2\nu\int\mathcal D_X\!\left(\rho-\frac{H_*}{4\nu},\rho-\frac{H_*}{4\nu}\right)
-=\mathcal W+\frac1{8\nu}\int\mathfrak q_{\mathbb B}(\mathbb B_{F_E})^2.}
+\boxed{\Omega_{\rm phys}=-A_u^{\rm rot}.}
 \]
-The dual capacity pairs with `mathbb B_F+[A_u,mathbb B]`, so full Jacobi/Bianchi curvature is assembled before positivity.  The finite-pump identity itself is now exact.  If
+Then the fresh self-adjoint source is exactly
 \[
-\phi=C^2u,\qquad \Gamma_u=|\phi\rangle\langle\phi|_g,\qquad
-\mathscr G_U=-CA_UC^{-1}=-A_U+\mathcal K_UC^{-1},
+\boxed{
+\mathcal R_{\rm phys}
+=\mathbb B_{F_E}-[\Omega_{\rm phys},\mathbb B]
+=\operatorname{Sym}_g(\mathbb B_{F_E}+[A_u,\mathbb B]).}
+\]
+Thus inherited one-step transport has been removed before positivity, while Jacobi/Bianchi curvature is assembled at the full covariant level.
+
+Propagating the actual terminal rank-one state backward by dephasing plus this physical rotation gives
+\[
+\partial_s\rho=\nu\mathcal A_X\rho+[\Omega_{\rm phys},\rho],
+\qquad \rho_t=|y(t)\rangle\langle y(t)|,
+\]
+and the exact balance
+\[
+\boxed{
+\frac d{ds}
+(\operatorname{Tr}(\rho\mathbb B)-\operatorname{Tr}\rho^2)
+=\operatorname{Tr}(\rho\mathcal R_{\rm phys})
+-2\nu\mathcal D_X(\rho,\rho).}
+\]
+Let `Pi_0` project onto `ker mathcal A_X`, `R_0=Pi_0 R_phys`, `R_1=(I-Pi_0)R_phys`, `delta=D_X(rho,rho)`, and `beta=Tr(rho R_1)`.  Scalar completion after actual-state compression gives the positive state-weighted curvature cost `beta^2/delta`; no full spectral positive-part entropy and no full Hilbert-Schmidt curvature traffic are required.  For mean-zero periodic states,
+\[
+\boxed{\mathcal R_0=\Pi_0[A_u^{\rm rot},\mathbb B],}
+\]
+so the dephasing kernel contains only a zero-net-carrier two-step backreaction loop.
+
+The finite pump channel is tied to the same actual state.  If
+\[
+\phi=C^2u,\qquad \Gamma_u=|\phi\rangle\langle\phi|_g,
+\qquad \mathscr G_U=-CA_UC^{-1},
 \]
 then
 \[
 \mathbb B_U=\nu^{-1}\operatorname{Sym}_g(\Lambda^{-2}\mathscr G_U),
 \qquad
-\operatorname{Tr}_g(\Gamma_u\Lambda^{-3})=E,
+\operatorname{Re}\operatorname{Tr}_g
+(\Gamma_u\Lambda^{-3}\mathscr G_{H_{2h}u})=-W_h.
 \]
-and for every heat depth `h`,
+Writing `ell=K/E` and `s=(Lambda-ell)u`, the two physical work moments satisfy
 \[
 \boxed{
-\operatorname{Re}\operatorname{Tr}_g
-(\Gamma_u\Lambda^{-3}\mathscr G_{H_{2h}u})=-W_h.}
+|\nu\operatorname{Tr}_g(\Gamma_u\mathbb B_U)
+-\ell\operatorname{Re}\operatorname{Tr}_g(\Gamma_u\Lambda^{-3}\mathscr G_U)|
+\le \|s\|_2\,\|J_UCu\|_2.}
 \]
-Thus finite Germano pump depletion is the `Lambda^{-3}` physical-action moment of the same `C^2u` generator whose `Lambda^{-2}` symmetric part is the helicity-pair amplifier.  This is an exact structural bridge, but the remaining alignment estimate is **not yet known to be a smaller theorem than critical regularity**.  Indeed `rho_act=Gamma_u/M_3` evolves under the full normalized physical generator `L_u=mathscr G_u-nu Lambda^2`, while the backward conjugate density evolves under dephasing plus the unconstrained optimal isospectral gauge `Omega_*`.  Their difference therefore has a fresh source containing the full `mathscr G_u`; no existing identity yet removes its inherited `-A_u` part.  Dephasing alone also cannot charge physical action reorientation because every Fourier-diagonal `f(X)`, including `Lambda^{-3}`, lies in `ker mathcal A_X`.  The next theorem must first construct a physically anchored connection/two-state duality that returns this source to `mathcal K`, `N_C`, or the full Bianchi/Jacobi combination before positivity.  Until that anchoring identity is proved, the conjugate Flow machine is a diagnostic structural reduction rather than a quantitative closure reduction.  Cutoff/infrared packing remains separate.  No global-regularity claim is made; see `docs/08-dephasing-spectral-endgame.md`.
+Thus on an exact single shell, critical work from `U=H_{2h}u` is exactly `-ell W_h` and must deplete the finite heat-depth pump.  The remaining theorem is not an alignment estimate.  It is to control the state-weighted kernel backreaction and the near-shell/infrared errors by finite Germano pump depletion, FDR, or full Bianchi/Nijenhuis reconfiguration, with cutoff-independent constants and without occurrence-wise positive traffic.  No global-regularity claim is made; see `docs/08-dephasing-spectral-endgame.md`.
