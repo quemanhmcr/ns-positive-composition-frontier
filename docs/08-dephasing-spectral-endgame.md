@@ -227,12 +227,52 @@ There are two exact obstructions to treating the present trace-one conjugate flo
 \]
 In particular `Q=Lambda^{-3}` carries the finite-energy action but receives no dephasing/FDR control.  Pure isospectral rotations can therefore reorient carrier action at zero `mathfrak q_B` cost in the abstract finite-cutoff geometry.  Any estimate charging such reorientation must use additional physical Cartan/Jacobi information, not the dephasing capacity alone.
 
-## 7. Current frontier
+## 7. Self-audit: the alignment gap is not yet a certified reduction
 
-The Flow machine survives the affine kill-test, but only after an **actual-action augmentation**.  The exact finite-pump identity is now available; the decisive open term is the historical alignment/action defect between the backward conjugate density and the unnormalized physical `C^2u` covariance.  The next theorem must show blockwise that a bad critical state pays at least one of:
+The exact pump identity is real, but by itself it does **not** show that the remaining historical estimate is smaller than the original critical-growth problem.  The reason is visible by evolving the normalized physical covariance itself.  Put
+\[
+L_u=\mathscr G_u-\nu\Lambda^2,
+\qquad
+\alpha_u=\operatorname{Tr}_g\bigl((L_u+L_u^{\dagger_g})\rho_{\rm act}\bigr)
+=\partial_t\log M_3.
+\]
+Since `Gamma_t=L_u Gamma+Gamma L_u^{dagger_g}`, one has the exact normalized law
+\[
+\boxed{
+\partial_t\rho_{\rm act}
+=L_u\rho_{\rm act}+\rho_{\rm act}L_u^{\dagger_g}
+-\alpha_u\rho_{\rm act}.}
+\]
+Subtracting this from the backward conjugate equation gives
+\[
+\boxed{
+\partial_s\Delta\rho
+=\nu\mathcal A_X\Delta\rho+[\Omega_*,\Delta\rho]
++\mathcal S_{\rm align},}
+\]
+where
+\[
+\boxed{
+\mathcal S_{\rm align}
+=\nu\mathcal A_X\rho_{\rm act}+[\Omega_*,\rho_{\rm act}]
+-L_u\rho_{\rm act}-\rho_{\rm act}L_u^{\dagger_g}
++\alpha_u\rho_{\rm act}.}
+\]
+Although `Delta rho_t=0`, the source `mathcal S_align(t)` is generically nonzero.  In particular it contains the full physical generator `mathscr G_u=-A_u+mathcal K C^{-1}`.  Therefore a direct estimate of `Delta rho` can simply reintroduce the original one-step stretching problem under a new name.
+
+There is a second, related issue.  The optimal `Omega_*` is obtained by quotienting `mathbb B_F` modulo **all** isospectral commutators.  This is legitimate for instantaneous spectral deformation, but it does not make `Omega_*` the physical transport connection of `rho_act`.  The identity
+\[
+\operatorname{Tr}(H_*\mathbb B_F)
+=\operatorname{Tr}(H_*(\mathbb B_F+[A_u,\mathbb B]))
+\]
+uses `[H_*,mathbb B]=0`; it does not imply `Omega_*` equals the physical skew transport.  The finite-cutoff kernel test with `q_B=0` but changing `Tr(rho Lambda^{-3})` shows that the unconstrained quotient can remove carrier reorientation which is invisible to dephasing but relevant to finite pump action.
+
+Hence the present Flow machine is, at this stage, a **diagnostic/structural reduction, not yet a quantitative closure reduction**.  It has genuinely eliminated false routes (trace entropy, heat-only infrared closure, amplitude-free depletion) and exposed the exact finite-pump work, but the remaining alignment/reorientation theorem has not been proved smaller than the original regularity gap.
+
+The next go/no-go test must therefore occur **before** any estimate of `mathcal E_align`: derive a physically anchored connection or a two-state duality for which inherited transport cancels exactly and for which the residual source is forced to `mathcal K`, `N_C`, or the full Bianchi/Jacobi combination before positivity.  If no such identity exists, continuing to bound `Delta rho` or adding another entropy/corrector would be circular and the Flow machine must be augmented or replaced.  Only if this anchoring succeeds should one seek the blockwise trichotomy
 \[
 \text{viscous/FDR loss},\qquad
 \text{finite Germano pump depletion},\qquad
 \text{physical carrier reconfiguration through }\mathcal K/N_C.
 \]
-The proof must also charge the carrier-changing part of the optimal isospectral gauge, because `Lambda^{-3}` lies in the exact dephasing kernel.  Only after this local action balance is closed should cutoff/infrared packing be attempted.  A global `h^{-3/2}` integration of the pump storage simply reconstructs `K` and would be circular.  No global-regularity claim is made.
+Cutoff/infrared packing remains a separate later gate.  A global `h^{-3/2}` integration of pump storage merely reconstructs `K` and is circular.  No global-regularity claim is made.
